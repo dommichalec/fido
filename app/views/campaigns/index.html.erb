@@ -1,0 +1,7 @@
+<h1>Displaying <%= pluralize(@campaigns.size, 'campaign') %></h1>
+<% @campaigns.each do |campaign| %>
+  <h2><%= campaign.title %></h2>
+  <p><%= campaign.description %></p>
+  <p><%= number_to_currency(campaign.amount_needed) %></p>
+  <p><%= campaign.medical_partner %></p>
+<% end %>
