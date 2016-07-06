@@ -24,8 +24,11 @@ class CampaignsController < ApplicationController
 
   def create
     @campaign = Campaign.new(campaign_params)
-    @campaign.save
-    redirect_to campaign_path(@campaign)
+    if @campaign.save
+      redirect_to campaign_path(@campaign)
+    else
+      render 'new'
+    end
   end
 
   def destroy
@@ -38,6 +41,6 @@ class CampaignsController < ApplicationController
 
   def campaign_params
     params.require(:campaign).
-      permit(:title, :description, :amount_needed, :medical_partner)
+      permit(:title, :description, :amount_needed, :medical_partner, :active)
   end
 end
