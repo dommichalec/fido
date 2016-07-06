@@ -1,7 +1,10 @@
-<h1>Displaying <%= pluralize(@campaigns.size, 'campaign') %></h1>
+<h1>Active campaigns</h1>
 <% @campaigns.each do |campaign| %>
-  <h2><%= link_to(campaign.title, campaign_path(campaign.id)) %></h2>
-  <p><%= campaign.description %></p>
-  <p><%= number_to_currency(campaign.amount_needed) %></p>
-  <p><%= campaign.medical_partner %></p>
+  <% if campaign.active? %>
+    <h2><%= link_to(campaign.title, campaign_path(campaign.id)) %></h2>
+    <p><%= campaign.description %></p>
+    <p><%= number_to_currency(campaign.amount_needed) %></p>
+    <p><%= campaign.medical_partner %></p>
+    <p><em>Updated <%= time_ago_in_words(campaign.updated_at) %> ago</em></p>
+  <% end %>
 <% end %>
