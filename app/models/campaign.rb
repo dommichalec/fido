@@ -1,4 +1,7 @@
 class Campaign < ApplicationRecord
+  # associations
+  has_many :contributions
+  
   # class-level methods
   def self.last_updated
     order("updated_at desc")

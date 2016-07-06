@@ -14,8 +14,12 @@ class CampaignsController < ApplicationController
 
   def update
     @campaign = Campaign.find(params[:id])
-    @campaign.update(campaign_params)
-    redirect_to campaign_path(@campaign)
+    if @campaign.update(campaign_params)
+      flash[:notice] = "Campaign has been successfully updated!"
+      redirect_to campaign_path(@campaign)
+    else
+      render 'edit'
+    end
   end
 
   def new
@@ -25,6 +29,7 @@ class CampaignsController < ApplicationController
   def create
     @campaign = Campaign.new(campaign_params)
     if @campaign.save
+      flash[:notice] = "Campaign has been successfully created!"
       redirect_to campaign_path(@campaign)
     else
       render 'new'
