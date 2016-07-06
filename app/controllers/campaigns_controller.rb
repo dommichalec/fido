@@ -7,4 +7,21 @@ class CampaignsController < ApplicationController
   def show
     @campaign = Campaign.find(params[:id])
   end
+
+  def edit
+    @campaign = Campaign.find(params[:id])
+  end
+
+  def update
+    @campaign = Campaign.find(params[:id])
+    @campaign.update(campaign_params)
+    redirect_to campaign_path(@campaign)
+  end
+
+  private
+
+  def campaign_params
+    params.require(:campaign).
+      permit(:title, :description, :amount_needed, :medical_partner)
+  end
 end

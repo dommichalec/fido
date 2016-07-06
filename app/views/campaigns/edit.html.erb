@@ -1,0 +1,13 @@
+<h1>Edit Campaign</h1>
+
+<%= form_for(@campaign) do |f| %>
+  <p><%= f.label :title %></p>
+  <p><%= f.text_area :title, cols: 40, rows: 1 %></p><br>
+  <p><%= f.label :description %></p>
+  <p><%= f.text_area :description, cols: 40, rows: 7 %></p>
+  <p><%= f.label :amount_needed %></p>
+  <p><%= f.number_field :amount_needed %></p>
+  <p><%= f.label :medical_partner %></p>
+  <p><%= f.text_area :medical_partner, cols: 40, rows: 1 %></p>
+  <p><%= f.submit %></p>
+<% end %>

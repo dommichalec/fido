@@ -2,4 +2,5 @@
 <p><%= @campaign.description %></p>
 <p><%= number_to_currency(@campaign.amount_needed) %></p>
 <p><%= @campaign.medical_partner %></p>
-<p><%= link_to("Go Back", campaigns_path) %></p>
+<p><%= link_to("Go Back", campaigns_path) %> |
+<%= link_to("Edit", edit_campaign_path(@campaign))%></p>
