@@ -1,7 +1,11 @@
 class Campaign < ApplicationRecord
   # associations
-  has_many :contributions
-  
+  # parent
+  has_many :contributions, dependent: :destroy # kill associated contributions
+  # upon campaign deletion
+
+  # child
+
   # class-level methods
   def self.last_updated
     order("updated_at desc")
