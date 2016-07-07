@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :contributions
+
   root 'static#index'
-  resources :campaigns
+  resources :campaigns do
+    resources :contributions
+  end
 end

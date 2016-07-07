@@ -2,6 +2,12 @@
 <p><%= @campaign.description %></p>
 <p><%= number_to_currency(@campaign.amount_needed) %></p>
 <p>In partnership with <%= @campaign.medical_partner %></p>
+<% if @campaign.contributions.any? %>
+  <h2>Contributor Notes:</h2>
+  <% @campaign.contributions.each do |contribution| %>
+    <p><%= contribution.first_name %> says "<%= "#{contribution.note}" %>"</p>
+  <% end %>
+<% end %>
 <p><%= link_to("Go Back", campaigns_path) %> |
 <%= link_to("Edit", edit_campaign_path(@campaign))%> |
 <%= link_to("Delete", campaign_path(@campaign), method: :delete, data: {confirm: "Are you sure you want to delete this campaign?"}) %>

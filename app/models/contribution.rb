@@ -6,6 +6,9 @@ class Contribution < ApplicationRecord
   belongs_to :campaign
 
   # class-level methods
+  def self.last_created
+    order("created_at desc")
+  end
 
   # instance-level methods
 
