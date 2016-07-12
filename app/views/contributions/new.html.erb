@@ -1,0 +1,14 @@
+<h1>Add your contribution to <%= @campaign.title %> below:</h1>
+
+<%= form_for([@campaign, @contribution]) do |f| %>
+<%= render 'shared/errors', object: @contribution %>
+  <p><%= f.label :first_name %></p>
+  <p><%= f.text_field :first_name %></p>
+  <p><%= f.label :last_name %></p>
+  <p><%= f.text_field :last_name %></p>
+  <p><%= f.label :email %></p>
+  <p><%= f.text_field :email %></p>
+  <p><%= f.label :note %></p>
+  <p><%= f.text_area :note, placeholder: "Leave a short, sweet 'get well' note here", cols: 40, rows: 7 %></p>
+  <%= f.submit %> | <%= link_to('Go back', campaign_path(@campaign)) %>
+<% end %>

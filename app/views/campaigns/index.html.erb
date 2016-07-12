@@ -5,6 +5,7 @@
     <p><%= campaign.description %></p>
     <p><%= number_to_currency(campaign.amount_needed) %></p>
     <p><%= campaign.medical_partner %></p>
+    <p><%= link_to "Contribute", new_campaign_contribution_path(campaign) %></p>
     <p><em>Updated <%= time_ago_in_words(campaign.updated_at) %> ago</em></p>
   <% end %>
 <% end %>

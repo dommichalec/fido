@@ -2,6 +2,7 @@
 <p><%= @campaign.description %></p>
 <p><%= number_to_currency(@campaign.amount_needed) %></p>
 <p>In partnership with <%= @campaign.medical_partner %></p>
+<p><%= link_to "Contribute", new_campaign_contribution_path(@campaign) %></p>
 <% if @campaign.contributions.any? %>
   <h2>Contributor Notes:</h2>
   <% @campaign.contributions.each do |contribution| %>
