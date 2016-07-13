@@ -13,4 +13,8 @@ class User < ApplicationRecord
     user = User.find_by(email: email)
     user && user.authenticate(password)
   end
+
+  def current_user
+    User.find(session[:id])
+  end
 end
